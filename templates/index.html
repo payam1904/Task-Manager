@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/task_manager.css">
+
+    <title>Payam Gh - Portfolio</title>
+</head>
+
+<!-------------------------------------- Header -->
+<header class="section">
+    <nav id="navbar-container">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/task-manager">Task Manager</a></li>
+        </ul>
+    </nav>
+
+    <div id="header-container">
+        {%block header_content%}
+        {%endblock%}
+    </div>
+</header>
+
+
+<!-------------------------------------- Body -->
+<body class="section">
+    <section id="body-container">
+         
+        {%block body_content%}
+        {%endblock%}
+    </section>
+</body>
+
+
+<!-------------------------------------- Footer -->
+<footer class="section">
+    <div id="footer-container">
+        Footer
+    </div>
+</footer>
+
+
+<!-------------------------------------- JS files -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="/static/js/index.js"></script>
+<script src="/static/js/task_manager.js"></script>
+</html>

@@ -1,0 +1,21 @@
+#new-task-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#task-title {
+    width: 100px;
+}
+
+#task-description {
+    width: 200px;
+    height: fit-content;
+}
+
+#task-due-date {
+    width: fit-content;
+}
+
+#add-task-btn {
+    width: 100px;
+}
