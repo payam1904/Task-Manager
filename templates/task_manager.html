@@ -1,14 +1,43 @@
 {% extends "index.html" %}
 
+
+
+
+
+
 {% block body_content %}
+
 <button id="create-task-btn" type="button" onclick="create_a_new_task">Create Task</button>
-<!-- <form>
-    <label for="title">title:</label>
-    <input type="text" id="title" name="title">
-    <label for="description">Description:</label>
-    <input type="text" id="description" name="description">
-    <label for="due-date">Due Date:</label>
-    <input type="date" id="due-date" name="due-date">
-    <button type="submit">Add Task</button>
-</form> -->
+
+<div id="task-form-container">
+</div>
+
+<div id="tasks-container">
+    <table>
+        <thead id="task-table-header">
+            <tr id="task-table-header-row">
+                <th class="task-data-item column-row">Row</th>
+                <th class="task-data-item">Name</th>
+                <th class="task-data-item">Description</th>
+                <th class="task-data-item column-action">Action</th>
+            </tr>
+
+        </thead>
+        <tbody id="task-table-body">
+            {% set pending_tasks = data | selectattr('status', 'equalto', 'Pending') | list %}
+            {% for row in pending_tasks %}
+            <tr id="task-table-body-row">
+                <td class="task-data-item column-row">{{ loop.index }}</td>
+                <td class="task-data-item">{{ row.name }}</td>
+                <td class="task-data-item">{{ row.description }}</td>
+                <td class="task-data-item column-action">
+                    <a href="/task-manager/delete-task?id={{ row.id }}">Delete</a>
+                    <a href="/task-manager/complete-task?id={{ row.id }}">Complete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
 {% endblock %}

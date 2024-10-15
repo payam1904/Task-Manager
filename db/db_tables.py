@@ -11,7 +11,7 @@ def create_tasks_table():
                 task_id INTEGER PRIMARY KEY AUTOINCREMENT,
                 task_name TEXT NOT NULL,
                 task_description TEXT NOT NULL,
-                task_status BOOLEAN DEFAULT 'Incomplete',
+                task_status BOOLEAN DEFAULT 'Pending',
                 task_created_date DATE DEFAULT CURRENT_TIMESTAMP,
                 task_due_date DATE
                 )""")
