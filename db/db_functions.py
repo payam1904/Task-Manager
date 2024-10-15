@@ -8,9 +8,9 @@ def db_add_task():
 
 
     try:
-        with sql.connect("db/database.db") as connection:
+        with sql.connect("db/database.db") as database:
             # connection.row_factory = sql.Row
-            admin = connection.cursor()
+            admin = database.cursor()
 
             data = request.get_json()
             print(data)
@@ -19,7 +19,7 @@ def db_add_task():
             task_due_date = data['taskDueDate']
 
             admin.execute("INSERT INTO tasks (task_name, task_description, task_due_date) VALUES (?, ?, ?)", (task_name, task_description, task_due_date))
-            connection.commit()
+            database.commit()
 
         return jsonify({"message": "Task added"}), 200
 
